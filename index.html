@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FinanceLab — simuladores financeiros práticos e gratuitos para planejar seus investimentos com clareza." />
+  <title>FinanceLab — Simuladores Financeiros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
+
+        <a href="index.html" class="site-logo">
+          <span class="site-logo__icon">
+            <!-- Ícone inline SVG: gráfico de linha -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </span>
+          FinanceLab
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+          <a href="index.html" class="site-nav__link">Home</a>
+          <a href="#simuladores" class="site-nav__link">Simuladores</a>
+          <a href="sobre/index.html" class="site-nav__link">Sobre</a>
+        </nav>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="site-nav">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main ───────────────────────────────────────────────── -->
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero__eyebrow">Ferramentas gratuitas</span>
+        <h1 class="hero__title">Simule. Planeje. Invista melhor.</h1>
+        <p class="hero__subtitle">
+          Simuladores financeiros práticos para você tomar decisões com mais clareza —
+          sem complicação, sem cadastro.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Simuladores ─────────────────────────────────────── -->
+    <section class="section" id="simuladores">
+      <div class="container">
+
+        <!-- Grupo 1: Crescimento Patrimonial -->
+        <div class="sim-group">
+          <div class="section-header">
+            <p class="section-header__label">Grupo 1</p>
+            <h2 class="section-header__title">Crescimento Patrimonial</h2>
+            <p class="section-header__desc">
+              Projete o crescimento do seu patrimônio com juros compostos, aportes mensais e metas de longo prazo.
+            </p>
+          </div>
+
+          <div class="simulators-grid">
+
+            <!-- Card: Juros Compostos -->
+            <a href="simuladores/juros-compostos.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                  <polyline points="16 7 22 7 22 13"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Juros Compostos</p>
+                <p class="sim-card__desc">
+                  Calcule o montante final com valor inicial, aportes mensais e taxa de juros. Veja quanto seus juros rendem sobre juros.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Card: Aportes Mensais -->
+            <a href="simuladores/aportes-mensais.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2"/>
+                  <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                  <line x1="12" y1="12" x2="12" y2="16"/>
+                  <line x1="10" y1="14" x2="14" y2="14"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Aportes Mensais</p>
+                <p class="sim-card__desc">
+                  Descubra quanto acumula investindo um valor fixo todo mês. Veja a evolução ano a ano do seu patrimônio.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Card: Projeção Patrimonial -->
+            <a href="simuladores/projecao-patrimonial.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/>
+                  <path d="M18 9l-5 5-4-4-3 3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Projeção Patrimonial</p>
+                <p class="sim-card__desc">
+                  Projete a evolução do seu patrimônio atual com aportes e taxa de retorno. Veja o crescimento ano a ano.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Grupo 2: Carteira e Alocação -->
+        <div class="sim-group">
+          <div class="section-header">
+            <p class="section-header__label">Grupo 2</p>
+            <h2 class="section-header__title">Carteira e Alocação</h2>
+            <p class="section-header__desc">
+              Descubra seu perfil de risco e mantenha sua carteira alinhada com seus objetivos.
+            </p>
+          </div>
+
+          <div class="simulators-grid">
+
+            <!-- Card: Perfil de Investidor -->
+            <a href="simuladores/perfil-investidor.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--orange">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Perfil de Investidor</p>
+                <p class="sim-card__desc">
+                  Responda 5 perguntas e descubra se você é conservador, moderado ou arrojado — com recomendações de alocação.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Card: Rebalanceamento -->
+            <a href="simuladores/rebalanceamento.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--teal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#0d9488" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Rebalanceamento de Carteira</p>
+                <p class="sim-card__desc">
+                  Informe sua alocação atual e a desejada. Veja exatamente quanto comprar ou vender em cada classe de ativo.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Grupo 3: Comparações -->
+        <div class="sim-group">
+          <div class="section-header">
+            <p class="section-header__label">Grupo 3</p>
+            <h2 class="section-header__title">Comparações</h2>
+            <p class="section-header__desc">
+              Compare cenários, estratégias e classes de ativos para tomar decisões mais informadas.
+            </p>
+          </div>
+
+          <div class="simulators-grid">
+
+            <!-- Card: Renda Fixa vs Renda Variável -->
+            <a href="simuladores/renda-fixa-vs-renda-variavel.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--rose">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#e11d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="9" height="18" rx="1"/>
+                  <rect x="13" y="3" width="9" height="18" rx="1"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Renda Fixa vs Renda Variável</p>
+                <p class="sim-card__desc">
+                  Compare o resultado de um mesmo capital em renda fixa e em diferentes cenários de renda variável.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Card: Comparador de Cenários -->
+            <a href="simuladores/comparador-cenarios.html" class="sim-card">
+              <div class="sim-card__icon sim-card__icon--sky">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                     stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"/>
+                  <line x1="12" y1="20" x2="12" y2="4"/>
+                  <line x1="6"  y1="20" x2="6"  y2="14"/>
+                </svg>
+              </div>
+              <div>
+                <p class="sim-card__title">Comparador de Cenários</p>
+                <p class="sim-card__desc">
+                  Projete seu patrimônio em três cenários simultâneos — conservador, base e otimista — e compare lado a lado.
+                </p>
+              </div>
+              <span class="sim-card__cta">
+                Usar simulador
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Teaser Sobre ────────────────────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div class="about-teaser">
+          <div class="about-teaser__text">
+            <h3>Sobre o FinanceLab</h3>
+            <p>
+              Um projeto criado para democratizar o acesso a ferramentas financeiras práticas.
+              Sem jargão desnecessário, sem cadastro, sem custo.
+            </p>
+          </div>
+          <a href="sobre/index.html" class="btn btn--ghost">
+            Conhecer o projeto
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">
+          &copy; 2025 FinanceLab. Feito para ajudar, não para vender.
+        </p>
+        <nav class="site-footer__links">
+          <a href="index.html">Home</a>
+          <a href="#simuladores">Simuladores</a>
+          <a href="sobre/index.html">Sobre</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projete a evolução do seu patrimônio atual com aportes mensais e taxa de retorno. Veja o crescimento ano a ano." />
+  <title>Projeção Patrimonial — FinanceLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="../index.html" class="site-logo">
+          <span class="site-logo__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </span>
+          FinanceLab
+        </a>
+        <nav class="site-nav" id="site-nav">
+          <a href="../index.html" class="site-nav__link">Home</a>
+          <a href="../index.html#simuladores" class="site-nav__link active">Simuladores</a>
+          <a href="../sobre/index.html" class="site-nav__link">Sobre</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="simulator-page">
+      <div class="container container--narrow">
+
+        <a href="../index.html#simuladores" class="simulator-page__back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Voltar aos simuladores
+        </a>
+
+        <div class="simulator-page__header">
+          <span class="simulator-page__badge">Crescimento Patrimonial</span>
+          <h1 class="simulator-page__title">Projeção Patrimonial</h1>
+          <p class="simulator-page__desc">
+            Informe seu patrimônio atual, os aportes mensais e a taxa de retorno esperada.
+            Veja como seu patrimônio evolui ano a ano e quanto ele se multiplica ao longo do tempo.
+          </p>
+        </div>
+
+        <!-- Formulário -->
+        <div class="form-card">
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label class="form-label" for="pp-patrimonio">Patrimônio atual (R$)</label>
+              <input class="form-input" type="number" id="pp-patrimonio"
+                     placeholder="Ex: 50000" min="0" step="0.01" value="50000" />
+              <span class="form-hint">Valor total que você já possui investido</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pp-aporte">Aporte mensal (R$)</label>
+              <input class="form-input" type="number" id="pp-aporte"
+                     placeholder="Ex: 1000" min="0" step="0.01" value="1000" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pp-taxa">Taxa de retorno (%)</label>
+              <input class="form-input" type="number" id="pp-taxa"
+                     placeholder="Ex: 10" min="0" step="0.01" value="10" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pp-taxa-tipo">Período da taxa</label>
+              <select class="form-select" id="pp-taxa-tipo">
+                <option value="anual" selected>Anual</option>
+                <option value="mensal">Mensal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pp-prazo">Prazo (anos)</label>
+              <input class="form-input" type="number" id="pp-prazo"
+                     placeholder="Ex: 15" min="1" max="50" step="1" value="15" />
+            </div>
+
+          </div>
+
+          <button class="btn btn--primary btn--full" id="btn-patrimonio">
+            Calcular projeção
+          </button>
+        </div>
+
+        <!-- Resultado -->
+        <div class="result-card" id="pp-result">
+          <p class="result-card__title">Projeção do patrimônio</p>
+
+          <div class="result-grid">
+            <div class="result-metric">
+              <span class="result-metric__label">Patrimônio Projetado</span>
+              <span class="result-metric__value result-metric__value--blue" id="pp-result-montante">—</span>
+            </div>
+            <div class="result-metric">
+              <span class="result-metric__label">Total Investido</span>
+              <span class="result-metric__value" id="pp-result-investido">—</span>
+            </div>
+            <div class="result-metric">
+              <span class="result-metric__label">Total em Rendimentos</span>
+              <span class="result-metric__value result-metric__value--green" id="pp-result-rendimento">—</span>
+            </div>
+            <div class="result-metric">
+              <span class="result-metric__label">Multiplicador</span>
+              <span class="result-metric__value result-metric__value--orange" id="pp-result-multiplicador">—</span>
+            </div>
+          </div>
+
+          <!-- Tabela de evolução anual -->
+          <div class="result-table-wrap">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Período</th>
+                  <th>Total Investido</th>
+                  <th>Rendimentos</th>
+                  <th>Patrimônio</th>
+                </tr>
+              </thead>
+              <tbody id="pp-result-tabela"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">&copy; 2025 FinanceLab. Feito para ajudar, não para vender.</p>
+        <nav class="site-footer__links">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#simuladores">Simuladores</a>
+          <a href="../sobre/index.html">Sobre</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/simuladores.js"></script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Simule o rebalanceamento da sua carteira de investimentos. Veja quanto comprar ou vender em cada classe de ativo." />
+  <title>Rebalanceamento de Carteira — FinanceLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Estilos específicos do rebalanceamento */
+    .rb-assets-wrap {
+      margin-bottom: var(--space-xl);
+    }
+
+    .rb-asset-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr auto;
+      gap: var(--space-md);
+      align-items: end;
+      padding: var(--space-md) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .rb-asset-row:first-child {
+      padding-top: 0;
+    }
+
+    .rb-asset-header {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr auto;
+      gap: var(--space-md);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--color-border);
+      margin-bottom: var(--space-sm);
+    }
+
+    .rb-asset-header span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .rb-btn-remove {
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 8px;
+      cursor: pointer;
+      color: var(--color-text-muted);
+      transition: background var(--transition), color var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .rb-btn-remove:hover {
+      background: #ffe4e6;
+      color: var(--color-danger);
+      border-color: var(--color-danger);
+    }
+
+    .rb-totals {
+      display: flex;
+      gap: var(--space-xl);
+      padding: var(--space-md) 0;
+      font-size: 0.875rem;
+    }
+
+    .rb-total-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .rb-total-label {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .rb-total-value {
+      font-weight: 700;
+      color: var(--color-text);
+    }
+
+    .rb-total-value.ok    { color: var(--color-success); }
+    .rb-total-value.error { color: var(--color-danger); }
+
+    @media (max-width: 600px) {
+      .rb-asset-row,
+      .rb-asset-header {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+      }
+
+      .rb-asset-row .form-group:first-child,
+      .rb-asset-header span:first-child {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="../index.html" class="site-logo">
+          <span class="site-logo__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </span>
+          FinanceLab
+        </a>
+        <nav class="site-nav" id="site-nav">
+          <a href="../index.html" class="site-nav__link">Home</a>
+          <a href="../index.html#simuladores" class="site-nav__link active">Simuladores</a>
+          <a href="../sobre/index.html" class="site-nav__link">Sobre</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="simulator-page">
+      <div class="container container--narrow">
+
+        <a href="../index.html#simuladores" class="simulator-page__back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Voltar aos simuladores
+        </a>
+
+        <div class="simulator-page__header">
+          <span class="simulator-page__badge">Carteira e Alocação</span>
+          <h1 class="simulator-page__title">Rebalanceamento de Carteira</h1>
+          <p class="simulator-page__desc">
+            Informe o valor total da sua carteira, os percentuais atuais de cada ativo e os percentuais desejados.
+            O simulador calcula exatamente quanto comprar ou vender em cada classe para atingir sua alocação alvo.
+          </p>
+        </div>
+
+        <!-- Formulário -->
+        <div class="form-card">
+
+          <!-- Patrimônio total -->
+          <div class="form-group mb-xl">
+            <label class="form-label" for="rb-patrimonio">Valor total da carteira (R$)</label>
+            <input class="form-input" type="number" id="rb-patrimonio"
+                   placeholder="Ex: 100000" min="1" step="0.01" value="100000" />
+            <span class="form-hint">Soma de todos os ativos da sua carteira</span>
+          </div>
+
+          <!-- Tabela de ativos -->
+          <div class="rb-assets-wrap">
+            <div class="rb-asset-header">
+              <span>Ativo / Classe</span>
+              <span>% Atual</span>
+              <span>% Alvo</span>
+              <span></span>
+            </div>
+
+            <div id="rb-assets-list">
+              <!-- Linhas geradas pelo JS -->
+            </div>
+          </div>
+
+          <!-- Totais -->
+          <div class="rb-totals">
+            <div class="rb-total-item">
+              <span class="rb-total-label">Soma % Atual</span>
+              <span class="rb-total-value" id="rb-soma-atual">0%</span>
+            </div>
+            <div class="rb-total-item">
+              <span class="rb-total-label">Soma % Alvo</span>
+              <span class="rb-total-value" id="rb-soma-alvo">0%</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-md);">
+            <button class="btn btn--ghost" id="rb-btn-add" type="button">
+              + Adicionar ativo
+            </button>
+            <button class="btn btn--primary" id="btn-rebalance" type="button">
+              Calcular rebalanceamento
+            </button>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <div class="result-card" id="rb-result">
+          <p class="result-card__title">Plano de rebalanceamento</p>
+
+          <div class="result-table-wrap">
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Ativo</th>
+                  <th>Posição Atual</th>
+                  <th>Posição Alvo</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="rb-result-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="result-insight" style="margin-top: var(--space-lg);">
+            Rebalancear sua carteira periodicamente (a cada 6 ou 12 meses) mantém o risco alinhado com seu perfil e evita que um único ativo domine sua alocação por conta das oscilações do mercado.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">&copy; 2025 FinanceLab. Feito para ajudar, não para vender.</p>
+        <nav class="site-footer__links">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#simuladores">Simuladores</a>
+          <a href="../sobre/index.html">Sobre</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/simuladores.js"></script>
+  <script>
+    /* ── Lógica de adicionar/remover linhas de ativos ─────── */
+    (function initRebalanceRows() {
+      const list    = document.getElementById('rb-assets-list');
+      const btnAdd  = document.getElementById('rb-btn-add');
+      const somaAt  = document.getElementById('rb-soma-atual');
+      const somaAlv = document.getElementById('rb-soma-alvo');
+
+      const defaultAssets = [
+        { nome: 'Renda Fixa',      atual: 40, alvo: 35 },
+        { nome: 'Ações',           atual: 30, alvo: 40 },
+        { nome: 'FIIs',            atual: 20, alvo: 15 },
+        { nome: 'Internacional',   atual: 10, alvo: 10 },
+      ];
+
+      function createRow(nome = '', atual = '', alvo = '') {
+        const row = document.createElement('div');
+        row.className = 'rb-asset-row';
+        row.innerHTML = `
+          <div class="form-group">
+            <input class="form-input rb-nome" type="text" placeholder="Ex: Ações" value="${nome}" />
+          </div>
+          <div class="form-group">
+            <input class="form-input rb-atual" type="number" placeholder="0" min="0" max="100" step="0.1" value="${atual}" />
+          </div>
+          <div class="form-group">
+            <input class="form-input rb-alvo" type="number" placeholder="0" min="0" max="100" step="0.1" value="${alvo}" />
+          </div>
+          <button class="rb-btn-remove" type="button" title="Remover ativo">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6"  y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        `;
+
+        row.querySelector('.rb-btn-remove').addEventListener('click', () => {
+          row.remove();
+          updateTotals();
+        });
+
+        row.querySelectorAll('input').forEach(inp => {
+          inp.addEventListener('input', updateTotals);
+        });
+
+        return row;
+      }
+
+      function updateTotals() {
+        const rows = list.querySelectorAll('.rb-asset-row');
+        let sumAt = 0, sumAlv = 0;
+        rows.forEach(r => {
+          sumAt  += parseFloat(r.querySelector('.rb-atual')?.value) || 0;
+          sumAlv += parseFloat(r.querySelector('.rb-alvo')?.value)  || 0;
+        });
+
+        somaAt.textContent  = sumAt.toFixed(1)  + '%';
+        somaAlv.textContent = sumAlv.toFixed(1) + '%';
+
+        somaAt.className  = 'rb-total-value ' + (Math.abs(sumAt  - 100) < 0.5 ? 'ok' : 'error');
+        somaAlv.className = 'rb-total-value ' + (Math.abs(sumAlv - 100) < 0.5 ? 'ok' : 'error');
+      }
+
+      // Popula com ativos padrão
+      defaultAssets.forEach(a => list.appendChild(createRow(a.nome, a.atual, a.alvo)));
+      updateTotals();
+
+      btnAdd.addEventListener('click', () => {
+        list.appendChild(createRow());
+        updateTotals();
+      });
+    })();
+  </script>
+</body>
+</html>

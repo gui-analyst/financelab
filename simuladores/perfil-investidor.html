@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Descubra seu perfil de investidor respondendo 5 perguntas. Conservador, moderado ou arrojado — com recomendações de alocação." />
+  <title>Perfil de Investidor — FinanceLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="../index.html" class="site-logo">
+          <span class="site-logo__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </span>
+          FinanceLab
+        </a>
+        <nav class="site-nav" id="site-nav">
+          <a href="../index.html" class="site-nav__link">Home</a>
+          <a href="../index.html#simuladores" class="site-nav__link active">Simuladores</a>
+          <a href="../sobre/index.html" class="site-nav__link">Sobre</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6"  x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="simulator-page">
+      <div class="container container--narrow">
+
+        <a href="../index.html#simuladores" class="simulator-page__back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="19" y1="12" x2="5" y2="12"/>
+            <polyline points="12 19 5 12 12 5"/>
+          </svg>
+          Voltar aos simuladores
+        </a>
+
+        <div class="simulator-page__header">
+          <span class="simulator-page__badge">Carteira e Alocação</span>
+          <h1 class="simulator-page__title">Perfil de Investidor</h1>
+          <p class="simulator-page__desc">
+            Responda 5 perguntas sobre seus objetivos, horizonte de investimento e tolerância a risco.
+            Em segundos, você descobre seu perfil e recebe recomendações práticas de alocação.
+          </p>
+        </div>
+
+        <!-- Formulário / Quiz -->
+        <div class="form-card">
+
+          <!-- Pergunta 1 -->
+          <div class="quiz-question">
+            <p class="quiz-question__text">1. Qual é o seu principal objetivo ao investir?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q1" value="1" />
+                <span class="quiz-option__label">Preservar meu capital — não quero perder o que tenho</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q1" value="2" />
+                <span class="quiz-option__label">Crescer meu patrimônio com equilíbrio entre segurança e retorno</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q1" value="3" />
+                <span class="quiz-option__label">Maximizar o retorno no longo prazo, mesmo com oscilações</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pergunta 2 -->
+          <div class="quiz-question">
+            <p class="quiz-question__text">2. Por quanto tempo você pretende deixar seu dinheiro investido?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q2" value="1" />
+                <span class="quiz-option__label">Menos de 2 anos — posso precisar do dinheiro em breve</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2" value="2" />
+                <span class="quiz-option__label">De 2 a 5 anos — horizonte de médio prazo</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q2" value="3" />
+                <span class="quiz-option__label">Mais de 5 anos — estou construindo patrimônio de longo prazo</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pergunta 3 -->
+          <div class="quiz-question">
+            <p class="quiz-question__text">3. Imagine que sua carteira cai 20% em um mês. O que você faz?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q3" value="1" />
+                <span class="quiz-option__label">Vendo tudo — não consigo dormir com esse prejuízo</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q3" value="2" />
+                <span class="quiz-option__label">Fico preocupado, mas aguardo a recuperação</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q3" value="3" />
+                <span class="quiz-option__label">Vejo como oportunidade e considero comprar mais</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pergunta 4 -->
+          <div class="quiz-question">
+            <p class="quiz-question__text">4. Qual é a sua experiência com investimentos?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q4" value="1" />
+                <span class="quiz-option__label">Iniciante — conheço pouco sobre o mercado financeiro</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q4" value="2" />
+                <span class="quiz-option__label">Intermediário — já invisto em renda fixa e alguns fundos</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q4" value="3" />
+                <span class="quiz-option__label">Experiente — invisto em ações, FIIs, ETFs e acompanho o mercado</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Pergunta 5 -->
+          <div class="quiz-question">
+            <p class="quiz-question__text">5. Você possui reserva de emergência equivalente a pelo menos 6 meses de despesas?</p>
+            <div class="quiz-options">
+              <label class="quiz-option">
+                <input type="radio" name="q5" value="1" />
+                <span class="quiz-option__label">Não — ainda estou construindo minha reserva</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q5" value="2" />
+                <span class="quiz-option__label">Parcialmente — tenho entre 3 e 6 meses guardados</span>
+              </label>
+              <label class="quiz-option">
+                <input type="radio" name="q5" value="3" />
+                <span class="quiz-option__label">Sim — tenho reserva completa e invisto o excedente</span>
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn--primary btn--full" id="btn-perfil">
+            Descobrir meu perfil
+          </button>
+        </div>
+
+        <!-- Resultado -->
+        <div class="result-card" id="perfil-result">
+          <p class="result-card__title">Seu perfil de investidor</p>
+
+          <div style="margin-bottom: var(--space-lg);">
+            <span class="profile-badge" id="perfil-result-badge">—</span>
+            <p style="font-size:0.8rem; color:var(--color-text-muted);" id="perfil-result-pontuacao"></p>
+          </div>
+
+          <div class="result-grid" style="grid-template-columns: 1fr;">
+            <div class="result-metric" style="gap: var(--space-sm);">
+              <span class="result-metric__label">Descrição do perfil</span>
+              <p style="font-size:0.95rem; color:var(--color-text); line-height:1.6;" id="perfil-result-descricao">—</p>
+            </div>
+          </div>
+
+          <div class="result-insight" style="margin-top: var(--space-lg);">
+            <strong>Recomendação de alocação:</strong>
+            <p style="margin-top: var(--space-xs); font-size:0.9rem;" id="perfil-result-recomendacao">—</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">&copy; 2025 FinanceLab. Feito para ajudar, não para vender.</p>
+        <nav class="site-footer__links">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#simuladores">Simuladores</a>
+          <a href="../sobre/index.html">Sobre</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <script src="../js/simuladores.js"></script>
+</body>
+</html>
