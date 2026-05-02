@@ -3,12 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sobre o FinanceLab — um projeto criado para democratizar o acesso a ferramentas financeiras práticas e gratuitas." />
+  <meta name="description" content="Sobre o FinanceLab — Tecnologia, dados e finanças aplicados à tomada de decisão." />
   <title>Sobre — FinanceLab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    /* Estilos específicos para a nova página Sobre */
+    .profile-section {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: var(--space-3xl);
+      align-items: start;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .profile-image-container {
+      position: sticky;
+      top: 100px;
+    }
+
+    .profile-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #e5e7eb;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .profile-placeholder {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid var(--color-border);
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .profile-content h1 {
+      margin-bottom: var(--space-xs);
+      font-size: 2.5rem;
+    }
+
+    .profile-tagline {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-xl);
+      letter-spacing: -0.01em;
+    }
+
+    .profile-bio p {
+      margin-bottom: var(--space-lg);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--color-text);
+    }
+
+    .vision-block {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-2xl);
+    }
+
+    .vision-block h3 {
+      margin-bottom: var(--space-md);
+      color: var(--color-text);
+    }
+
+    .vision-block p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+    }
+
+    .connect-section {
+      margin-top: var(--space-2xl);
+    }
+
+    @media (max-width: 850px) {
+      .profile-section {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+      .profile-image-container {
+        position: static;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .profile-content {
+        text-align: center;
+      }
+      .profile-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -47,124 +148,69 @@
     <div class="about-page">
       <div class="container">
 
-        <!-- Cabeçalho da página -->
-        <div style="margin-bottom: var(--space-2xl);">
-          <span class="hero__eyebrow">O projeto</span>
-          <h1 style="margin-top: var(--space-md); margin-bottom: var(--space-md);">Sobre o FinanceLab</h1>
-          <p style="font-size:1.05rem; max-width:600px; color:var(--color-text-muted);">
-            Uma plataforma de ferramentas financeiras práticas, gratuitas e sem complicação.
-          </p>
-        </div>
-
-        <hr class="divider" />
-
-        <!-- Seção principal -->
-        <div class="about-intro">
-
-          <!-- Texto do projeto -->
-          <div class="about-intro__text">
-            <h2>Por que o FinanceLab existe?</h2>
-            <p>
-              A maioria das pessoas não tem acesso fácil a ferramentas financeiras de qualidade.
-              Ou elas são pagas, ou exigem cadastro, ou são tão complexas que acabam confundindo mais do que ajudando.
-            </p>
-            <p>
-              O FinanceLab nasceu com um objetivo simples: colocar simuladores financeiros úteis e funcionais
-              ao alcance de qualquer pessoa, sem barreiras, sem jargão desnecessário e sem custo.
-            </p>
-            <p>
-              Aqui você encontra ferramentas para simular juros compostos, projetar seu patrimônio,
-              descobrir seu perfil de investidor, rebalancear sua carteira e comparar cenários —
-              tudo com matemática correta e interface clara.
-            </p>
-            <p>
-              O projeto está em constante evolução. Novos simuladores, conteúdos e funcionalidades
-              serão adicionados ao longo do tempo.
-            </p>
-          </div>
-
-          <!-- Card do criador -->
-          <div class="about-creator">
-            <p class="about-creator__name">Criador do Projeto</p>
-            <p class="about-creator__role">Finanças &amp; Tecnologia</p>
-
-            <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom: var(--space-lg); line-height:1.6;">
-              Apaixonado por finanças pessoais e pelo poder que o conhecimento financeiro tem de transformar vidas.
-              Este projeto é uma forma de contribuir com ferramentas práticas para quem está construindo seu futuro financeiro.
-            </p>
-
-            <div class="about-creator__links">
-              <a href="https://linkedin.com" target="_blank" rel="noopener" class="about-creator__link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+        <div class="profile-section">
+          <!-- Coluna da Foto -->
+          <div class="profile-image-container">
+            <!-- Espaço para foto real -->
+            <div class="profile-placeholder">
+              <img src="../assets/images/foto-perfil.jpg" alt="Guilherme Correa" class="profile-image" onerror="this.style.display='none'; this.parentElement.innerHTML='Foto Profissional<br>(300x300)'">
+            </div>
+            
+            <div class="connect-section">
+              <a href="[SEU_LINKEDIN_AQUI]" target="_blank" rel="noopener" class="btn btn--primary btn--full">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                   <rect x="2" y="9" width="4" height="12"/>
                   <circle cx="4" cy="4" r="2"/>
                 </svg>
-                LinkedIn
-              </a>
-
-              <a href="https://github.com" target="_blank" rel="noopener" class="about-creator__link">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                     stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-                GitHub
+                Conectar no LinkedIn
               </a>
             </div>
           </div>
 
-        </div>
+          <!-- Coluna do Conteúdo -->
+          <div class="profile-content">
+            <h1>Guilherme Correa</h1>
+            <p class="profile-tagline">Tecnologia, dados e finanças aplicados à tomada de decisão</p>
 
-        <hr class="divider" />
+            <div class="profile-bio">
+              <p>
+                Com cerca de 10 anos de experiência na interseção entre dados e tecnologia, minha trajetória é marcada pela construção de soluções que transformam complexidade em clareza. Como desenvolvedor de software e especialista em engenharia de dados, atuei em setores estratégicos como finanças, imobiliário e tecnologia, desenvolvendo sistemas de automação, modelagem e ETL em ambientes de alta exigência.
+              </p>
+              <p>
+                Minha experiência internacional e o background técnico consolidado me permitiram desenvolver um olhar rigoroso e analítico sobre como a informação deve ser estruturada para apoiar decisões reais. O <strong>FinanceLab</strong> nasce justamente desse repertório: a união entre o rigor da engenharia de dados e um interesse profundo pelo universo dos investimentos.
+              </p>
+              <p>
+                Acredito que a tecnologia deve servir como uma ponte para a inteligência financeira. Este projeto não é apenas uma coleção de simuladores, mas o início de uma plataforma dedicada a democratizar ferramentas práticas que ajudem pessoas a visualizar cenários e planejar o futuro com base em dados, e não apenas em intuição.
+              </p>
+            </div>
 
-        <!-- Valores do projeto -->
-        <div>
-          <div class="section-header">
-            <p class="section-header__label">Princípios</p>
-            <h2 class="section-header__title">O que guia este projeto</h2>
+            <div class="vision-block">
+              <h3>Visão de Futuro</h3>
+              <p>
+                O FinanceLab é um projeto independente construído com visão de longo prazo. O que começa hoje como um hub de simuladores essenciais está sendo estruturado para evoluir para um ecossistema completo de ferramentas de apoio à decisão, conteúdos analíticos e soluções inteligentes para investidores que buscam consistência e clareza técnica.
+              </p>
+            </div>
+
+            <div class="values-grid" style="margin-top: var(--space-2xl);">
+              <div class="value-card">
+                <div class="value-card__icon">📊</div>
+                <p class="value-card__title">Perfil Analítico</p>
+                <p class="value-card__desc">Decisões baseadas em dados e modelagem matemática precisa.</p>
+              </div>
+              <div class="value-card">
+                <div class="value-card__icon">⚙️</div>
+                <p class="value-card__title">Rigor Técnico</p>
+                <p class="value-card__desc">Engenharia de software aplicada para garantir robustez e confiabilidade.</p>
+              </div>
+              <div class="value-card">
+                <div class="value-card__icon">🚀</div>
+                <p class="value-card__title">Visão Estratégica</p>
+                <p class="value-card__desc">Foco no longo prazo e na construção de valor sustentável.</p>
+              </div>
+            </div>
           </div>
-
-          <div class="values-grid">
-            <div class="value-card">
-              <div class="value-card__icon">🎯</div>
-              <p class="value-card__title">Utilidade acima de tudo</p>
-              <p class="value-card__desc">Cada ferramenta existe para resolver um problema real, não para impressionar.</p>
-            </div>
-            <div class="value-card">
-              <div class="value-card__icon">🔍</div>
-              <p class="value-card__title">Clareza e simplicidade</p>
-              <p class="value-card__desc">Sem jargão desnecessário. Resultados apresentados de forma direta e compreensível.</p>
-            </div>
-            <div class="value-card">
-              <div class="value-card__icon">✅</div>
-              <p class="value-card__title">Matemática correta</p>
-              <p class="value-card__desc">Os cálculos são precisos. Você pode confiar nos números para tomar decisões.</p>
-            </div>
-            <div class="value-card">
-              <div class="value-card__icon">🔓</div>
-              <p class="value-card__title">Acesso livre</p>
-              <p class="value-card__desc">Sem cadastro, sem paywall, sem anúncios intrusivos. Ferramentas abertas para todos.</p>
-            </div>
-          </div>
-        </div>
-
-        <hr class="divider" />
-
-        <!-- CTA para simuladores -->
-        <div class="about-teaser">
-          <div class="about-teaser__text">
-            <h3>Pronto para simular?</h3>
-            <p>Acesse os simuladores e comece a planejar seus investimentos agora mesmo.</p>
-          </div>
-          <a href="../index.html#simuladores" class="btn btn--primary">
-            Ver todos os simuladores
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                 stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <line x1="5" y1="12" x2="19" y2="12"/>
-              <polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
         </div>
 
       </div>
@@ -174,11 +220,15 @@
   <footer class="site-footer">
     <div class="container">
       <div class="site-footer__inner">
-        <p class="site-footer__copy">&copy; 2025 FinanceLab. Feito para ajudar, não para vender.</p>
+        <div class="site-footer__brand">
+          <p class="site-footer__copy">
+            &copy; 2025 FinanceLab. Projeto independente criado por <strong>Guilherme Correa</strong>, unindo tecnologia, análise e finanças.
+          </p>
+        </div>
         <nav class="site-footer__links">
           <a href="../index.html">Home</a>
-          <a href="../index.html#simuladores">Simuladores</a>
-          <a href="index.html">Sobre</a>
+          <a href="[SEU_LINKEDIN_AQUI]" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="../disclaimer/index.html">Aviso Legal</a>
         </nav>
       </div>
     </div>
